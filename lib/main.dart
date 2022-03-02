@@ -30,9 +30,10 @@ class _WeatherAppState extends State<WeatherApp> {
 
   void _getInfo() async {
     Dio dio = Dio();
+    dio.options.baseUrl = 'https://api.openweathermap.org/data/2.5';
     try {
       Response response = await dio.get(
-          'https://api.openweathermap.org/data/2.5/find?q=${_inputcontroller.text}&units=metric&appid=$_key');
+          '/find?q=${_inputcontroller.text}&units=metric&appid=$_key');
       var list = response.data['list'][0];
       var c = list['main']['temp'];
       _img = list['weather'][0]['icon'];
