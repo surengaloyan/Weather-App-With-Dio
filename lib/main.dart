@@ -28,7 +28,7 @@ class _WeatherAppState extends State<WeatherApp> {
   final TextEditingController _inputcontroller = TextEditingController();
   static const String _key = '566e060e599cd39fae232f201965594d';
 
-  void _takeRecuest() async {
+  void _getInfo() async {
     Dio dio = Dio();
     try {
       Response response = await dio.get(
@@ -93,9 +93,9 @@ class _WeatherAppState extends State<WeatherApp> {
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(_mainClr)),
                 onPressed: () {
-                  _takeRecuest();
+                  _getInfo();
                 },
-                child: const Text('Take recuest'),
+                child: const Text('Get Info'),
               ),
             ]),
           ),
